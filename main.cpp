@@ -1,11 +1,11 @@
-	#include "libutils/io.h"
+#include "libutils/io.h"
 #include "Sorts.h"
 int main() {
 	int User_Choise1 = 1;
 	do {
 		std::vector<int> v;
-		const int accuracy = utils::read_int("Enter accuracy: ", 1, 5000);//количество выполнения сортировки для векторов одного и того же размера 		
-		std::vector<int> SIZES;//Вектор размеров
+		const int accuracy = utils::read_int("Enter accuracy: ", 1, 5000);//ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г±Г®Г°ГІГЁГ°Г®ГўГЄГЁ Г¤Г«Гї ГўГҐГЄГІГ®Г°Г®Гў Г®Г¤Г­Г®ГЈГ® ГЁ ГІГ®ГЈГ® Г¦ГҐ Г°Г Г§Г¬ГҐГ°Г  		
+		std::vector<int> SIZES;//Г‚ГҐГЄГІГ®Г° Г°Г Г§Г¬ГҐГ°Г®Гў
 		int number_sizes = utils::read_int("Enter number of sizes: ", 1, 20);
 		int step = utils::read_int("Enter step: ", 1, 1000000);
 		for (size_t i = 1; i <= number_sizes; ++i) {
@@ -16,13 +16,13 @@ int main() {
 			SIZES[i] = SIZES[i - 1] + step;*/
 			SIZES.push_back(step * i);
 		}
-		std::vector<int> vcopy = v;//создаем копию вектора 
+		std::vector<int> vcopy = v;//Г±Г®Г§Г¤Г ГҐГ¬ ГЄГ®ГЇГЁГѕ ГўГҐГЄГІГ®Г°Г  
 		system("pause");
 		int User_Choise2 = 1;
-		std::vector<double> time;//вектор времен, за которые вычисляется определенная сортировка с векторами одного и того же размера
+		std::vector<double> time;//ГўГҐГЄГІГ®Г° ГўГ°ГҐГ¬ГҐГ­, Г§Г  ГЄГ®ГІГ®Г°Г»ГҐ ГўГ»Г·ГЁГ±Г«ГїГҐГІГ±Гї Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­Г­Г Гї Г±Г®Г°ГІГЁГ°Г®ГўГЄГ  Г± ГўГҐГЄГІГ®Г°Г Г¬ГЁ Г®Г¤Г­Г®ГЈГ® ГЁ ГІГ®ГЈГ® Г¦ГҐ Г°Г Г§Г¬ГҐГ°Г 
 
-		double average_time = 0.0;//Среднее время выполнения одной сортировки с векторами одного и того же размера
-		std::vector<double> Average_Times;//Вектор средних времен каждой сортировки со векторами разных размеров
+		double average_time = 0.0;//Г‘Г°ГҐГ¤Г­ГҐГҐ ГўГ°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®Г¤Г­Г®Г© Г±Г®Г°ГІГЁГ°Г®ГўГЄГЁ Г± ГўГҐГЄГІГ®Г°Г Г¬ГЁ Г®Г¤Г­Г®ГЈГ® ГЁ ГІГ®ГЈГ® Г¦ГҐ Г°Г Г§Г¬ГҐГ°Г 
+		std::vector<double> Average_Times;//Г‚ГҐГЄГІГ®Г° Г±Г°ГҐГ¤Г­ГЁГµ ГўГ°ГҐГ¬ГҐГ­ ГЄГ Г¦Г¤Г®Г© Г±Г®Г°ГІГЁГ°Г®ГўГЄГЁ Г±Г® ГўГҐГЄГІГ®Г°Г Г¬ГЁ Г°Г Г§Г­Г»Гµ Г°Г Г§Г¬ГҐГ°Г®Гў
 		do {
 			system("cls");
 			switch (utils::read_int("Choose variant of sorting: \n 0 - Selection Sort.\n 1 - Bubble Sort.\n 2 - Shella Sort.\n 3 - Quick Sort.\n 4 - Merge Sort.\n", 0, 4))
@@ -55,7 +55,7 @@ int main() {
 					for (auto i : time) {
 						average_time += i;
 					}
-					average_time = average_time / accuracy;//получили среднее время выполнения сортировки с векторами одного размера
+					average_time = average_time / accuracy;//ГЇГ®Г«ГіГ·ГЁГ«ГЁ Г±Г°ГҐГ¤Г­ГҐГҐ ГўГ°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г±Г®Г°ГІГЁГ°Г®ГўГЄГЁ Г± ГўГҐГЄГІГ®Г°Г Г¬ГЁ Г®Г¤Г­Г®ГЈГ® Г°Г Г§Г¬ГҐГ°Г 
 					time.clear();
 					Average_Times.push_back(average_time);
 					average_time = 0.0;
@@ -79,7 +79,7 @@ int main() {
 					for (auto i : time) {
 						average_time += i;
 					}
-					average_time = average_time / accuracy;//получили среднее время выполнения сортировки с векторами одного размера
+					average_time = average_time / accuracy;//ГЇГ®Г«ГіГ·ГЁГ«ГЁ Г±Г°ГҐГ¤Г­ГҐГҐ ГўГ°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г±Г®Г°ГІГЁГ°Г®ГўГЄГЁ Г± ГўГҐГЄГІГ®Г°Г Г¬ГЁ Г®Г¤Г­Г®ГЈГ® Г°Г Г§Г¬ГҐГ°Г 
 					time.clear();
 					Average_Times.push_back(average_time);
 					average_time = 0.0;
@@ -102,7 +102,7 @@ int main() {
 					for (auto i : time) {
 						average_time += i;
 					}
-					average_time = average_time / accuracy;//получили среднее время выполнения сортировки с векторами одного размера
+					average_time = average_time / accuracy;//ГЇГ®Г«ГіГ·ГЁГ«ГЁ Г±Г°ГҐГ¤Г­ГҐГҐ ГўГ°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г±Г®Г°ГІГЁГ°Г®ГўГЄГЁ Г± ГўГҐГЄГІГ®Г°Г Г¬ГЁ Г®Г¤Г­Г®ГЈГ® Г°Г Г§Г¬ГҐГ°Г 
 					time.clear();
 					Average_Times.push_back(average_time);
 					average_time = 0.0;
@@ -125,7 +125,7 @@ int main() {
 					for (auto i : time) {
 						average_time += i;
 					}
-					average_time = average_time / accuracy;//получили среднее время выполнения сортировки с векторами одного размера
+					average_time = average_time / accuracy;//ГЇГ®Г«ГіГ·ГЁГ«ГЁ Г±Г°ГҐГ¤Г­ГҐГҐ ГўГ°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г±Г®Г°ГІГЁГ°Г®ГўГЄГЁ Г± ГўГҐГЄГІГ®Г°Г Г¬ГЁ Г®Г¤Г­Г®ГЈГ® Г°Г Г§Г¬ГҐГ°Г 
 					time.clear();
 					Average_Times.push_back(average_time);
 					average_time = 0.0;
@@ -148,7 +148,7 @@ int main() {
 					for (auto i : time) {
 						average_time += i;
 					}
-					average_time = average_time / accuracy;//получили среднее время выполнения сортировки с векторами одного размера
+					average_time = average_time / accuracy;//ГЇГ®Г«ГіГ·ГЁГ«ГЁ Г±Г°ГҐГ¤Г­ГҐГҐ ГўГ°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г±Г®Г°ГІГЁГ°Г®ГўГЄГЁ Г± ГўГҐГЄГІГ®Г°Г Г¬ГЁ Г®Г¤Г­Г®ГЈГ® Г°Г Г§Г¬ГҐГ°Г 
 					time.clear();
 					Average_Times.push_back(average_time);
 					average_time = 0.0;
